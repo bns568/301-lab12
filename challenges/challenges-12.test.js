@@ -43,7 +43,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let dataArr = [];
+  hours.forEach((val, i) => {
+   dataArr.push({sales: data[i] + ' cookies', time: hours[i]})
+  })
+  return dataArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +69,7 @@ const errands = [
 ]
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+    return arr[2].items[1].quantity;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,7 +91,12 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+  if(board[row][col] === "#"){
+    return "hit";
+  }
+  else {
+    return "miss";
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------
