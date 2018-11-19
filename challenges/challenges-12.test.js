@@ -165,7 +165,28 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let avgs = []; 
+  let total = 0; 
+  let count = 0; 
+  
+  for(let i = 0; i < weather. length; i++){
+    total = 0;
+    count = 0;
+    for(let j = 0; j < weather[i].length; j++){
+      total += weather[i][j];
+      count++;
+    }
+    avgs.push(total/count);
+  }
+  
+  let lowestNum = avgs[0];
+  avgs.map(val => {
+    if(val < lowestNum) {
+      lowestNum = val; 
+    }
+  })
+
+  return lowestNum; 
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -181,7 +202,22 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  let arr = [];
+  let splitByRow = str.split('\n')
+  
+  splitByRow.forEach(val => {
+    arr.push(val.split(','))
+  })
+ 
+  let final = [];
+  
+  arr.forEach(val => {
+    final.push(val.reduce((acc, cur) => {
+      return acc + parseInt(cur)
+    }, 0))
+  })
+
+  return final;
 }
 
 /* ------------------------------------------------------------------------------------------------
